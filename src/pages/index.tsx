@@ -1,14 +1,10 @@
-import { signIn, signOut, useSession } from "next-auth/react";
-import Head from "next/head";
-import Link from "next/link";
 
-import { api } from "~/utils/api";
-import styles from "./index.module.css";
-import { Button,Image, Card, CardBody, CardFooter, CardHeader, Divider, Avatar } from "@nextui-org/react";
-import React from "react";
+import { Button, Card, CardBody, CardFooter, CardHeader, Avatar } from "@nextui-org/react";
+import React, { ReactElement } from "react";
+import { Navbar } from "~/components/navbar";
+import Layout from "./layout";
 
 export default function Home() {
-  const hello = api.post.hello.useQuery({ text: "from tRPC" });
   const [isFollowed, setIsFollowed] = React.useState(false);
 
   return (
@@ -58,3 +54,11 @@ export default function Home() {
     </>
   );
 }
+
+Home.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <Layout>
+      {page}
+    </Layout>
+  );
+};
