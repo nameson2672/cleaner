@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+.clip-hero-image {
+    clip-path: polygon(40% 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
