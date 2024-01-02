@@ -1,23 +1,24 @@
 import React from "react";
 import {Card, CardHeader, CardBody, Image, CardFooter} from "@nextui-org/react";
+import { LandingPagePropsType } from "~/types/LandingPagePropsType";
 
-export default function LandingPageCard() {
+export default function LandingPageCard({ id, imageUrl, body, header }:LandingPagePropsType) {
   return (
-    <Card className="py-4">
+    <Card id={id} className="py-4">
       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-        <h4 className="font-bold text-large">Frontend Radio</h4>
+        <h4 className="font-bold text-large">{header}</h4>
       </CardHeader>
       <CardBody className="overflow-visible py-2">
         <Image
             isZoomed
           alt="Card background"
           className="object-cover rounded-xl"
-          src="https://res.cloudinary.com/ddxsatvd0/image/upload/v1704141789/yghnaj8uzphga3am8jvh.jpg"
+          src={imageUrl}
           width={270}
         />
       </CardBody>
       <CardFooter>
-      <p className="text-tiny uppercase font-bold">Daily Mix</p>
+      <p className="text-tiny w-60 font-bold">{body}</p>
       </CardFooter>
     </Card>
   );

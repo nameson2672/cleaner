@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "imageUrl": "https://res.cloudinary.com/ddxsatvd0/image/upload/v1704141789/cleaners/dsdravshkdkbme3cjzuj",
+    "body": "Transform your living space into a haven of cleanliness and comfort with our meticulous house cleaning services. We leave no corner untouched, ensuring a spotless and refreshing home for you to enjoy",
+    "header": "House Cleaning"
+  },
+  {
+    "id": "2",
+    "imageUrl": "https://res.cloudinary.com/ddxsatvd0/image/upload/v1704141789/cleaners/ht5ghimjvs7uelqbzs3t",
+    "body": "Elevate the beauty of your newly renovated space with our specialized renovation cleaning services. We meticulously clear away the remnants of construction, leaving your transformed area pristine and ready for a fresh start.",
+    "header": "Renovation Clean"
+  },
+  {
+    "id": "3",
+    "imageUrl": "https://res.cloudinary.com/ddxsatvd0/image/upload/v1704141789/cleaners/nhwmljpglylfm7b3nfhk",
+    "body": "Ensure a smooth transition for your tenants with our thorough rental cleaning services. From top to bottom, we leave no trace behind, providing a spotless and inviting space for the next chapter in your property's story",
+    "header": "Rental Cleaning"
+  },
+  {
+    "id": "4",
+    "imageUrl": "https://res.cloudinary.com/ddxsatvd0/image/upload/v1704141789/cleaners/s1groylxddxjsrkm4uwo",
+    "body": "Make your move stress-free and leave a lasting impression with our comprehensive move-out cleaning services. We meticulously clean every nook and cranny, ensuring you hand over a spotless home and step into your new chapter with confidence.",
+    "header": "Move Out Cleaning"
+  },
+  {
+    "id": "5",
+    "imageUrl": "https://res.cloudinary.com/ddxsatvd0/image/upload/v1704141789/cleaners/urkfpx1hevlbgadiluce",
+    "body": "Experience a new level of cleanliness with our deep cleaning services. We go beyond the surface, tackling hidden grime and dirt, leaving your space rejuvenated and refreshingly pristine.",
+    "header": "Deep Cleaning"
+  }
+  ,  {
+    "id": "6",
+    "imageUrl": "https://res.cloudinary.com/ddxsatvd0/image/upload/v1704141789/cleaners/alh3uekawnic8aztqqz3",
+    "body": "Elevate condo living with our specialized cleaning services. Our meticulous attention to detail ensures a spotless and welcoming environment, allowing you to enjoy the epitome of comfort and cleanliness in your condominium.",
+    "header": "Condo Cleaning"
+  }
+]

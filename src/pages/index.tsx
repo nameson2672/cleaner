@@ -11,8 +11,12 @@ import NextImage from "next/image";
 import Layout from "./layout";
 import LandingPageCard from "~/components/landingPageCard";
 
-export default function Home() {
-
+interface IHome {
+  props : {
+    jsonData :  LandingPagePropsType []
+  }
+}
+export default function Home( { jsonData } :  { jsonData: LandingPagePropsType []} ) {
   return (
     <div>
     <div className="flex gap-4 justify-end">
@@ -89,8 +93,8 @@ export default function Home() {
     <Divider />
     <div className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
       <div className="flex flex-wrap gap-6 justify-center">
-      {[0,1,2,3,4,5].map(()=>(
-        <LandingPageCard />
+      {jsonData.map((e)=>(
+        <LandingPageCard {...e}  />
       ))}
     </div>
     </div>
@@ -101,3 +105,30 @@ export default function Home() {
 Home.getLayout = function getLayout(page: ReactElement) {
   return <Layout>{page}</Layout>;
 };
+
+import fs from 'fs';
+import path from 'path';
+import { LandingPagePropsType } from "~/types/LandingPagePropsType";
+
+const filePath = path.join(process.cwd(), '/src/data/landingPageCardInfo.json');
+
+export async function getStaticProps() {
+  try {
+    const fileContents = fs.readFileSync(filePath, 'utf-8');
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const jsonData:LandingPagePropsType [] = JSON.parse(fileContents);
+    return {
+      props: {
+        jsonData,
+      },
+    };
+  } catch (error) {
+    console.error('Error reading or parsing the file:', error);
+
+    return {
+      props: {
+        jsonData: null,
+      },
+    };
+  }
+}
