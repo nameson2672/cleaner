@@ -4,3 +4,16 @@ export type LandingPagePropsType = {
   body: string;
   imageUrl:string;
 };
+export type CheckListData = CheckListPropsInfo[]
+
+export interface CheckListPropsInfo {
+  imageUrl: string
+  header: string
+  points: string[]
+  crossForSection: CrossForSection[]
+}
+
+export interface CrossForSection {
+  from: number
+  tag: string
+}

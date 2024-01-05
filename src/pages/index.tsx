@@ -6,25 +6,19 @@ import { Hero } from "~/components/Hero/Hero";
 
 interface IHome {
   props: {
-    jsonData: LandingPagePropsType[];
+    checkListDat: CheckListData;
   };
 }
 export default function Home({
-  jsonData,
+  checkListDat,
 }: {
-  jsonData: LandingPagePropsType[];
+  checkListDat: CheckListData;
 }) {
   return (
     <div>
       <Hero />
       <FeaturesSection />
-      <Container>
-        <Group grow>
-          <ChecklistCard />
-          <ChecklistCard />
-          <ChecklistCard />
-        </Group>
-      </Container>
+      <CheckListSection  {...checkListDat}/>
     </div>
   );
 }
@@ -35,21 +29,22 @@ Home.getLayout = function getLayout(page: ReactElement) {
 
 import fs from "fs";
 import path from "path";
-import { LandingPagePropsType } from "~/types/LandingPagePropsType";
+import { CheckListData } from "~/types/LandingPagePropsType";
 import { FeaturesSection } from "~/components/FetureSection/FetureSectin";
 import { ChecklistCard } from "~/components/Cards/ChecklistCard";
 import { Container, Group } from "@mantine/core";
+import CheckListSection from "~/components/CheckListSection/CheckListSection";
 
-const filePath = path.join(process.cwd(), "/src/data/landingPageCardInfo.json");
+const filePath = path.join(process.cwd(), "/src/data/cleaningCategory.json");
 
 export async function getStaticProps() {
   try {
     const fileContents = fs.readFileSync(filePath, "utf-8");
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const jsonData: LandingPagePropsType[] = JSON.parse(fileContents);
+    const checkListDat: CheckListData = JSON.parse(fileContents);
     return {
       props: {
-        jsonData,
+        checkListDat,
       },
     };
   } catch (error) {
@@ -57,7 +52,7 @@ export async function getStaticProps() {
 
     return {
       props: {
-        jsonData: null,
+        checkListData: null,
       },
     };
   }
