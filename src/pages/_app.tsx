@@ -3,7 +3,7 @@ import { SessionProvider } from "next-auth/react";
 import { AppProps, type AppType } from "next/app";
 import { api } from "~/utils/api";
 import '@mantine/core/styles.css';
-import { createTheme, rem, MantineProvider, MantineColorsTuple } from '@mantine/core';
+import { createTheme, MantineProvider, MantineColorsTuple } from '@mantine/core';
 
 const myColor: MantineColorsTuple = [
   '#ffe9f1',

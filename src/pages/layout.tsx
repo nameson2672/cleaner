@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import { siteConfig } from "@/src/config/site";
-import { fontSans } from "@/src/config/fonts";
 import { Navbar } from "~/components/Navbar/Navbar";
 import { FooterLinks } from "~/components/Footer/Footer";
 

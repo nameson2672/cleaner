@@ -8,7 +8,11 @@
     padding-right: var(--mantine-spacing-md);
     padding-bottom: var(--mantine-spacing-md);
   }
-  
+  .header{
+    padding-left: var(--mantine-spacing-md);
+    padding-right: var(--mantine-spacing-md);
+    padding-bottom: var(--mantine-spacing-md);
+  }
   .like {
     color: var(--mantine-color-red-6);
     width: rem(20px);
