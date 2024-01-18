@@ -4,8 +4,8 @@ import classes from "./HowItWorksTimeline.module.css";
 
 export function HowItWorksTimeline() {
   return (
-    <Container className={classes.container}>
-    <Title order={3}>How its work!</Title>
+    <Container pb={'xl'} className={classes.container} >
+    <Title order={3} m={'xl'}>How its work!</Title>
     <Timeline active={1} bulletSize={24} lineWidth={2}>
       <Timeline.Item bullet={<IconGitBranch size={12} />} title="New branch">
         <Text c="dimmed" size="sm">You&apos;ve created new branch <Text variant="link" component="span" inherit>fix-notifications</Text> from master</Text>

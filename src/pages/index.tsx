@@ -4,6 +4,8 @@ import { FeaturesSection } from "~/components/FetureSection/FetureSectin";
 import CheckListSection from "~/components/CheckListSection/CheckListSection";
 import { ReactElement } from "react";
 import { HowItWorksTimeline } from "~/components/TimeLine/HowItWorksTimeline";
+import { ContactUs } from "~/components/Contact/ContactUs";
+import { Faq } from "~/components/Faq/Faq";
 export default function Home() {
   return (
     <div>
@@ -11,6 +13,8 @@ export default function Home() {
       <FeaturesSection />
       <HowItWorksTimeline />
       <CheckListSection />
+      <Faq />
+      <ContactUs />
     </div>
   );
 }
