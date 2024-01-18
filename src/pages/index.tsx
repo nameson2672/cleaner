@@ -6,12 +6,14 @@ import { ReactElement } from "react";
 import { HowItWorksTimeline } from "~/components/TimeLine/HowItWorksTimeline";
 import { ContactUs } from "~/components/Contact/ContactUs";
 import { Faq } from "~/components/Faq/Faq";
+import { WhyUs } from "~/components/WhyUs/WhyUs";
 export default function Home() {
   return (
     <div>
       <Hero />
       <FeaturesSection />
       <HowItWorksTimeline />
+      <WhyUs />
       <CheckListSection />
       <Faq />
       <ContactUs />

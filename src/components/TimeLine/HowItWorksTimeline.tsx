@@ -1,10 +1,15 @@
-import { Timeline, Text, Container, Title } from '@mantine/core';
+import { Image,Timeline, Text, Container, Title, Grid } from '@mantine/core';
 import { IconGitBranch, IconGitPullRequest, IconGitCommit, IconMessageDots } from '@tabler/icons-react';
 import classes from "./HowItWorksTimeline.module.css";
 
 export function HowItWorksTimeline() {
   return (
-    <Container pb={'xl'} className={classes.container} >
+    <Container className={classes.container} >
+      <Grid id="faq-grid" gutter={50}>
+      <Grid.Col span={{ base: 12, md: 6 }}>
+            <Image src={"https://res.cloudinary.com/ddxsatvd0/image/upload/v1705600639/cleaners/wepik-export-20240118173847ywmF_kc9ovj.png"} alt="Frequently Asked Questions" />
+          </Grid.Col>
+          <Grid.Col span={{ base: 12, md: 6 }}>
     <Title order={3} m={'xl'}>How its work!</Title>
     <Timeline active={1} bulletSize={24} lineWidth={2}>
       <Timeline.Item bullet={<IconGitBranch size={12} />} title="New branch">
@@ -27,6 +32,9 @@ export function HowItWorksTimeline() {
         <Text size="xs" mt={4}>12 minutes ago</Text>
       </Timeline.Item>
     </Timeline>
+    </Grid.Col>
+          
+        </Grid>
     </Container>
   );
 }
