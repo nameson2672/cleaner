@@ -1,4 +1,4 @@
-import { Text, SimpleGrid, Container, rem } from '@mantine/core';
+import { Text, SimpleGrid, Container, rem, Title, Flex } from '@mantine/core';
 import { IconHome2, IconHomeCog, IconHandMove, IconHomeMove, IconMenuDeep, IconAirConditioningDisabled } from '@tabler/icons-react';
 import { FeatureCard } from '../Cards/FeatureCard';
 
@@ -45,10 +45,13 @@ export function FeaturesSection() {
   const items = mockdata.map((item) => <FeatureCard {...item} key={item.title} />);
 
   return (
-    <Container mt={30} mb={30} size="lg">
-      <SimpleGrid cols={{ base: 1, sm: 3 }} spacing={50}>
+    <Container mt={'xl'} p={'xl'} mb={30} size="lg">
+      <Flex justify={"center"} align={"center"} direction={"column"}>
+      <Title order={2} p={"xl"} size={"h1"}>Services We Provide</Title>
+      <SimpleGrid mt={'xl'} cols={{ base: 1, sm: 3 }} spacing={50}>
         {items}
       </SimpleGrid>
+      </Flex>
     </Container>
   );
 }

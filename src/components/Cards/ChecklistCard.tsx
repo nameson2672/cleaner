@@ -1,5 +1,5 @@
 import { IconCircleCheck, IconCircleDashed, IconX } from "@tabler/icons-react";
-import { Card, Image, List, Mark, Text, ThemeIcon, rem } from "@mantine/core";
+import { Card, Image, List, Mark, Text, ThemeIcon, Title, rem } from "@mantine/core";
 import classes from "./ChecklistCard.module.css";
 
 export interface CheckListCardProps {
@@ -25,7 +25,7 @@ export function ChecklistCard({
         <Image src={imageUrl} alt={header} height={180} />
       </Card.Section>
       <Card.Section className={classes.section} mt="md">
-       <Text size="lg"><Mark>{header}</Mark></Text>
+       <Title size={'h4'}>{header}</Title>
       </Card.Section>
       <Card.Section className={classes.header} mt="md">
         { points.map(e=>(

@@ -10,7 +10,7 @@ export function HowItWorksTimeline() {
             <Image src={"https://res.cloudinary.com/ddxsatvd0/image/upload/v1705600639/cleaners/wepik-export-20240118173847ywmF_kc9ovj.png"} alt="Frequently Asked Questions" />
           </Grid.Col>
           <Grid.Col span={{ base: 12, md: 6 }}>
-    <Title order={3} m={'xl'}>How its work!</Title>
+    <Title order={3} size={"h1"} m={'xl'}>How its work!</Title>
     <Timeline active={1} bulletSize={24} lineWidth={2}>
       <Timeline.Item bullet={<IconGitBranch size={12} />} title="New branch">
         <Text c="dimmed" size="sm">You&apos;ve created new branch <Text variant="link" component="span" inherit>fix-notifications</Text> from master</Text>

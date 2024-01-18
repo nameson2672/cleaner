@@ -9,8 +9,8 @@ const CheckListSection = () => {
   const data : CheckListData = checkListData;
   console.log(data);
   return (
-    <Container>
-        <Group grow>
+    <Container pt={'xl'} mt={'xl'}>
+        <Group align={"baseline"} grow>
             { data.map((e)=>( 
             <ChecklistCard key={e.header} imageUrl={e.imageUrl} header={e.header} points={e.points} crossForm={e.crossForSection} />)
             )}

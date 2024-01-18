@@ -3,22 +3,22 @@ import classes from './WhyUs.module.css';
 
 const data = [
   {
-    image: 'auditors',
-    title: 'Pharmacists',
+    image: 'https://res.cloudinary.com/ddxsatvd0/image/upload/v1705616718/cleaners/best-seller_5970902_mqtgrq.png',
+    title: 'Professional',
     description: 'Azurill can be seen bouncing and playing on its big, rubbery tail',
   },
   {
-    image: 'lawyers',
-    title: 'Lawyers',
+    image: 'https://res.cloudinary.com/ddxsatvd0/image/upload/v1705616718/cleaners/save-money_1611179_qejbjr.png',
+    title: 'Cheap',
     description: 'Fans obsess over the particular length and angle of its arms',
   },
   {
-    image: 'accountants',
-    title: 'Bank owners',
+    image: 'https://res.cloudinary.com/ddxsatvd0/image/upload/v1705616718/cleaners/performance_7172783_ngnjca.png',
+    title: 'Fast',
     description: 'They divvy up their prey evenly among the members of their pack',
   },
   {
-    image: 'others',
+    image: 'https://res.cloudinary.com/ddxsatvd0/image/upload/v1705616718/cleaners/performance_7172783_ngnjca.png',
     title: 'Others',
     description: 'Phanpy uses its long nose to shower itself',
   },
@@ -28,7 +28,7 @@ export function WhyUs() {
     const items = data.map((item) => (
         <div className={classes.item} key={item.image}>
           <ThemeIcon variant="light" className={classes.itemIcon} size={60} radius="md">
-            <Image src={item.image} />
+            <Image  src={item.image} />
           </ThemeIcon>
     
           <div>
@@ -44,7 +44,7 @@ export function WhyUs() {
         
         <div className={classes.wrapperLarge}>
         <Container size={700} className={classes.wrapper}>
-          <Title c='white' className={classes.title} order={2}>
+          <Title c='white' size={"h1"} className={classes.title} order={2}>
             Why <span className={classes.highlight}>us ?</span>
           </Title>
     
