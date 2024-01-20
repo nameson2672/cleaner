@@ -32,9 +32,12 @@ export function Hero() {
         <b>Customized solutions for your needs</b> –  We offer tailored cleaning services to fit your schedule and specific preferences, ensuring your space is cleaned to your satisfaction.
       </List.Item>
     </List> */}
-        <Button variant="gradient" size="xl" radius="xl" className={classes.control}>
-          Get started
-        </Button>
+        <div>
+  <a className={classes.effect1} href="#">
+    Let's Go!
+    <span className={classes.bg}></span>
+  </a>
+</div>
       </Container>
     </div>
   );

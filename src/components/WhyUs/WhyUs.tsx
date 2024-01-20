@@ -4,23 +4,23 @@ import classes from './WhyUs.module.css';
 const data = [
   {
     image: 'https://res.cloudinary.com/ddxsatvd0/image/upload/v1705616718/cleaners/best-seller_5970902_mqtgrq.png',
-    title: 'Professional',
-    description: 'Azurill can be seen bouncing and playing on its big, rubbery tail',
+    title: 'Professional Service',
+    description: 'Our team consists of highly trained professionals, ensuring every cleaning task is completed to the highest standards.',
   },
   {
     image: 'https://res.cloudinary.com/ddxsatvd0/image/upload/v1705616718/cleaners/save-money_1611179_qejbjr.png',
-    title: 'Cheap',
-    description: 'Fans obsess over the particular length and angle of its arms',
+    title: 'Affordable Prices',
+    description: "We offer a top-notch cleaning service at a price that won't break the bank. Quality doesn't always have to be expensive.",
   },
   {
     image: 'https://res.cloudinary.com/ddxsatvd0/image/upload/v1705616718/cleaners/performance_7172783_ngnjca.png',
-    title: 'Fast',
-    description: 'They divvy up their prey evenly among the members of their pack',
+    title: 'Quick Response',
+    description: 'We understand that your time is valuable. Our team is committed to providing fast and efficient cleaning services to meet your needs.',
   },
   {
     image: 'https://res.cloudinary.com/ddxsatvd0/image/upload/v1705616718/cleaners/performance_7172783_ngnjca.png',
-    title: 'Others',
-    description: 'Phanpy uses its long nose to shower itself',
+    title: 'Reliable',
+    description: 'You can count on us to arrive on time and complete our work in a thorough and timely manner. Customer satisfaction is our priority.',
   },
 ];
 
@@ -50,9 +50,7 @@ export function WhyUs() {
     
           <Container size={660} p={0}>
             <Text c="white" className={classes.description}>
-              Its lungs contain an organ that creates electricity. The crackling sound of electricity
-              can be heard when it exhales. Azurill’s tail is large and bouncy. It is packed full of the
-              nutrients this Pokémon needs to grow.
+            Put your faith in us for your cleaning requirements. We assure you of professional, cost-effective, and quick services, always with your satisfaction at the forefront of our priorities.
             </Text>
           </Container>
     
