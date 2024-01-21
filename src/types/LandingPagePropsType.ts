@@ -15,5 +15,5 @@ export interface CheckListPropsInfo {
 
 export interface CrossForSection {
   from: number
-  tag: string
+  tag: number
 }

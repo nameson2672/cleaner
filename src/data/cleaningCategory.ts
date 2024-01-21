@@ -1,7 +1,7 @@
 export const checkListData = [
     {
       "imageUrl": "https://res.cloudinary.com/ddxsatvd0/image/upload/v1704157884/cleaners/urkfpx1hevlbgadiluce.jpg",
-      "header": "General Cleaning",
+      "header": "Bedrooms & Living Areas",
       "points": [
         "Introduction of new features",
         "Live demos and presentations",
@@ -14,13 +14,20 @@ export const checkListData = [
       "crossForSection": [
         {
           "from": 3,
-          "tag": "Seminar Hall"
+          "tag": 1
+        },{
+          "from": 5,
+          "tag": 2
+        },
+        {
+          "from": 3,
+          "tag": 3
         }
       ]
     },
     {
       "imageUrl": "https://res.cloudinary.com/ddxsatvd0/image/upload/v1704141789/yghnaj8uzphga3am8jvh.jpg",
-      "header": "House Cleaning",
+      "header": "Kitchen Area",
       "points": [
         "Hands-on coding sessions",
         "Tech talks by industry leaders",
@@ -38,14 +45,21 @@ export const checkListData = [
       ],
       "crossForSection": [
         {
-          "from": 3,
-          "tag": "Workshop Area"
+          "from": 6,
+          "tag": 1
+        },{
+          "from": 4,
+          "tag": 2
+        },
+        {
+          "from": 6,
+          "tag": 3
         }
       ]
     },
     {
       "imageUrl": "https://res.cloudinary.com/ddxsatvd0/image/upload/v1704157338/cleaners/ht5ghimjvs7uelqbzs3t.jpg",
-      "header": "Deep Cleaning",
+      "header": "Bathroom",
       "points": [
         "Group workouts and fitness classes",
         "Nutrition and wellness tips",
@@ -57,8 +71,15 @@ export const checkListData = [
       ],
       "crossForSection": [
         {
+          "from": 5,
+          "tag": 1
+        },{
           "from": 3,
-          "tag": "Wellness Zone"
+          "tag": 2
+        },
+        {
+          "from": 4,
+          "tag": 3
         }
       ]
     }
