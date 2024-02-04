@@ -40,28 +40,6 @@ export function ChecklistCard({
     </List>
     ))
 }
-{/* { points.splice(crossForm, points.length-1).map(e=>(
-      <List
-      spacing="xs"
-      size="sm"
-      center
-      icon={
-        <ThemeIcon color="teal" size={15} radius="xl">
-          <IconX style={{ width: rem(16), height: rem(16) }} />
-        </ThemeIcon>
-      }
-    >
-      <List.Item>{e}</List.Item>
-    </List>
-    ))
-} */}
-        {/* {points.splice(0, crossForm).map((description) => (
-          <b>{description}</b>
-        ))}
-
-        {points.splice(crossForm, points.length - 1).map((description) => (
-          <b>{description}</b>
-        ))} */}
       </Card.Section>
     </Card>
   );

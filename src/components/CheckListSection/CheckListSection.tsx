@@ -49,7 +49,7 @@ const CheckListSection = () => {
       <Center mb={'md'}>
       <Text fw={500} size="md">{packegeInfos[selectedPackage-1]}</Text>
       </Center>
-      <Group align={"baseline"} grow>
+      <Group align="stretch" grow>
         {data.map((e) => (
           <ChecklistCard
             key={e.header}

@@ -46,6 +46,7 @@ import {
             />
             <TextInput
               label="Name"
+              required
               placeholder="John Doe"
               mt="md"
               classNames={{ input: classes.input, label: classes.inputLabel }}
@@ -53,7 +54,7 @@ import {
             <Textarea
               required
               label="Your message"
-              placeholder="I want to order your goods"
+              placeholder="I want to book a cleaning...."
               minRows={4}
               mt="md"
               classNames={{ input: classes.input, label: classes.inputLabel }}

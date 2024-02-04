@@ -13,12 +13,12 @@ const data = [
     description: "We offer a top-notch cleaning service at a price that won't break the bank. Quality doesn't always have to be expensive.",
   },
   {
-    image: 'https://res.cloudinary.com/ddxsatvd0/image/upload/v1705616718/cleaners/performance_7172783_ngnjca.png',
+    image: 'https://res.cloudinary.com/ddxsatvd0/image/upload/v1706474816/stopwatch_9645301_z4ocdz.png',
     title: 'Quick Response',
     description: 'We understand that your time is valuable. Our team is committed to providing fast and efficient cleaning services to meet your needs.',
   },
   {
-    image: 'https://res.cloudinary.com/ddxsatvd0/image/upload/v1705616718/cleaners/performance_7172783_ngnjca.png',
+    image: 'https://res.cloudinary.com/ddxsatvd0/image/upload/v1706474695/transition_12494926_byd8nf.png',
     title: 'Reliable',
     description: 'You can count on us to arrive on time and complete our work in a thorough and timely manner. Customer satisfaction is our priority.',
   },
@@ -27,7 +27,7 @@ const data = [
 export function WhyUs() {
     const items = data.map((item) => (
         <div className={classes.item} key={item.image}>
-          <ThemeIcon variant="light" className={classes.itemIcon} size={60} radius="md">
+          <ThemeIcon color="" variant="light" className={classes.itemIcon} size={60} radius="md">
             <Image  src={item.image} />
           </ThemeIcon>
     

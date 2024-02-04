@@ -3,31 +3,36 @@ import { Container, Group, Burger } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { MantineLogo } from '@mantinex/mantine-logo';
 import classes from './Navbar.module.css';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const links = [
-  { link: '/about', label: 'Features' },
+  { link: '/', label: 'Home' },
+  { link: '/services', label: 'Services' },
   { link: '/pricing', label: 'Pricing' },
-  { link: '/learn', label: 'Learn' },
-  { link: '/community', label: 'Community' },
+  { link: '/contactUs', label: 'Contact Us' },
 ];
 
 export function Navbar() {
   const [opened, { toggle }] = useDisclosure(false);
   const [active, setActive] = useState(links[0]?.link);
+  const router = useRouter();
 
   const items = links.map((link) => (
-    <a
+    <div onClick={(event) => {
+      event.preventDefault();
+      setActive(link.link);
+    }}>
+    <Link
       key={link.label}
       href={link.link}
       className={classes.link}
       data-active={active === link.link || undefined}
-      onClick={(event) => {
-        event.preventDefault();
-        setActive(link.link);
-      }}
     >
       {link.label}
-    </a>
+
+    </Link>
+    </div>
   ));
 
   return (
