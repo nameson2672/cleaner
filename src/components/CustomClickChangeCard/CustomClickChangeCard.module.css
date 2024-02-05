@@ -1,0 +1,26 @@
+.mainContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    border: 1px solid rgb(24, 24, 24);
+}
+
+.mainContainer:hover{
+    border: 1px solid var(--mantine-color-yellow-filled);
+}
+
+.mainContainerClicked{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    background-color: var(--mantine-color-yellow-filled);
+}
+
+.mainComponent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}

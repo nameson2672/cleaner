@@ -3,8 +3,6 @@ import { ChecklistCard } from "../Cards/ChecklistCard";
 import { CheckListData } from "~/types/LandingPagePropsType";
 import { Button, Center, Container, Group, Text } from "@mantine/core";
 import { checkListData } from "~/data/cleaningCategory";
-import { IconArrowRight, IconDownload, IconPhoto } from "@tabler/icons-react";
-import { useSelectedLayoutSegment } from "next/navigation";
 
 const CheckListSection = () => {
   const data: CheckListData = checkListData;
