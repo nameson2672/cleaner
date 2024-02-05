@@ -2,6 +2,7 @@ import { type Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 import { AppProps, type AppType } from "next/app";
 import { api } from "~/utils/api";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import '@mantine/core/styles.css';
 import { createTheme, MantineProvider, MantineColorsTuple } from '@mantine/core';
 
@@ -42,6 +43,7 @@ const MyApp: React.FC<AppPropsWithLayout<{ session: Session }>> = ({
   return (
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     <SessionProvider session={session}>
+      <SpeedInsights />
       <MantineProvider theme={theme}>
       {
         getLayout(<Component {...pageProps} />)
