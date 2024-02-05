@@ -35,7 +35,7 @@ export default function FindPriceStepper() {
   return (
     <Container>
       <Box className={classes.step1}>
-        <Title order={4}>What type of Cleaning you need?</Title>
+        <Title c={'yellow'} order={4}>What type of Cleaning you need?</Title>
         <Text mt={"md"}>
           Welcome to our cleaning services! We offer two distinct options to
           meet your cleaning needs:
@@ -163,7 +163,7 @@ export default function FindPriceStepper() {
       <Divider my="lg" />
 
       <Box className={classes.step2}>
-        <Title order={4}>Customize your cleaning need?</Title>
+        <Title c={'yellow'} order={4}>Customize your cleaning need?</Title>
         <Text>
           We understand that every home is unique, and so are your cleaning
           needs. Tailor your cleaning experience by selecting from a range of
@@ -181,7 +181,7 @@ export default function FindPriceStepper() {
       </Box>
       <Divider my={"lg"} />
       <Box className={classes.step3}>
-        <Title order={4}>Your contact info</Title>
+        <Title c={'yellow'} order={4}>Your contact info</Title>
         <Text size="md" c="dimmed">
           This data will be utilized to communicate with you regarding your
           requested service.
@@ -209,7 +209,7 @@ export default function FindPriceStepper() {
       </Box>
       <Divider my={"lg"} />
       <Box className={classes.step4}>
-        <Title order={4}>Where and when?</Title>
+        <Title c={'yellow'} order={4}>Where and when?</Title>
         <Text size="md" c="dimmed">
           Kindly provide the location details for the property requiring
           cleaning.
@@ -234,7 +234,7 @@ export default function FindPriceStepper() {
       </Box>
       <Divider my={"lg"} />
       <Box className={classes.step5}>
-        <Title order={4}>Special note?</Title>
+        <Title c={'yellow'} order={4}>Special note?</Title>
         <Text size="md" c="dimmed">
           Kindly furnish information regarding property access, including keypad
           codes, parking details, and any additional particulars you deem
