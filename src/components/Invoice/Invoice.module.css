@@ -1,0 +1,14 @@
+.card {
+    background-color: var(--mantine-color-body);
+  }
+
+  
+  .switch {
+    & * {
+      cursor: pointer;
+    }
+  }
+  
+  .title {
+    line-height: 1;
+  }

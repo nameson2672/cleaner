@@ -26,6 +26,7 @@ const theme = createTheme({
 });
 import { ReactElement, ReactNode } from "react";
 import { NextPage } from "next";
+import '@mantine/dates/styles.css';
 
 export type NextPageWithLayout<P = object, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;

@@ -17,7 +17,8 @@ function CustomClickChangeCard({
           <Box
             onClick={() => setIsSelected(!isSelected)}
             w={"150px"}
-            h={"100px"}
+            h={"150px"}
+            p={'lg'}
             className={
               isSelected === true
                 ? classes.mainContainerClicked
@@ -28,11 +29,11 @@ function CustomClickChangeCard({
           </Box>
         </HoverCard.Target>
         <HoverCard.Dropdown>
-          <Text size="sm">{description}</Text>
+          <Text size="xs">{description}</Text>
         </HoverCard.Dropdown>
       </HoverCard>
       <Center mt={"sm"}>
-        <Text size="md">{name}</Text>
+        <Text size="xs">{name}</Text>
       </Center>
     </div>
   );

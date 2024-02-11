@@ -14,12 +14,15 @@ import {
   Space,
   Highlight,
   Divider,
+  Button,
 } from "@mantine/core";
+import { DateTimePicker } from "@mantine/dates";
 import { useForm } from "@mantine/form";
 import classes from "./FindPriceStepper.module.css";
 import CustomClickChangeCard from "../CustomClickChangeCard/CustomClickChangeCard";
 import { CustomClean } from "~/data/CustomClean";
 import { CustomClickChangeCardProp } from "~/types/CustomClickChangeCardProps";
+import Invoice from "../Invoice/Invoice";
 
 export default function FindPriceStepper() {
   const [active, setActive] = useState(1);
@@ -32,10 +35,22 @@ export default function FindPriceStepper() {
       area: "",
     },
   });
+  const items = [
+    { description: "Widget", quantity: 2, price: 10 },
+    { description: "Gadget", quantity: 1, price: 20 },
+    { description: "Thingamajig", quantity: 3, price: 15 },
+  ];
+
+  const total = items.reduce(
+    (acc, item) => acc + item.quantity * item.price,
+    0
+  );
   return (
     <Container>
       <Box className={classes.step1}>
-        <Title c={'yellow'} order={4}>What type of Cleaning you need?</Title>
+        <Title c={"yellow"} order={4}>
+          What type of Cleaning you need?
+        </Title>
         <Text mt={"md"}>
           Welcome to our cleaning services! We offer two distinct options to
           meet your cleaning needs:
@@ -59,8 +74,9 @@ export default function FindPriceStepper() {
         <Select
           mt={"md"}
           label="Available Packages"
-          data={["Hourly Cleaning Service", "House Cleaning Package"]}
+          data={["House Cleaning Package", "Hourly Cleaning Service"]}
           min={1}
+          placeholder="Select package according to your need"
           withAsterisk
           description="House cleaning is used for apartment cleaning"
           {...form.getInputProps("noOfBedrooms")}
@@ -163,7 +179,9 @@ export default function FindPriceStepper() {
       <Divider my="lg" />
 
       <Box className={classes.step2}>
-        <Title c={'yellow'} order={4}>Customize your cleaning need?</Title>
+        <Title c={"yellow"} order={4}>
+          Customize your cleaning need?
+        </Title>
         <Text>
           We understand that every home is unique, and so are your cleaning
           needs. Tailor your cleaning experience by selecting from a range of
@@ -181,12 +199,14 @@ export default function FindPriceStepper() {
       </Box>
       <Divider my={"lg"} />
       <Box className={classes.step3}>
-        <Title c={'yellow'} order={4}>Your contact info</Title>
+        <Title c={"yellow"} order={4}>
+          Your contact info
+        </Title>
         <Text size="md" c="dimmed">
           This data will be utilized to communicate with you regarding your
           requested service.
         </Text>
-        <Grid mt={'md'} columns={8}>
+        <Grid mt={"md"} columns={8}>
           <Grid.Col span={3}>
             <TextInput
               label="First Name"
@@ -209,12 +229,14 @@ export default function FindPriceStepper() {
       </Box>
       <Divider my={"lg"} />
       <Box className={classes.step4}>
-        <Title c={'yellow'} order={4}>Where and when?</Title>
+        <Title c={"yellow"} order={4}>
+          Where and when?
+        </Title>
         <Text size="md" c="dimmed">
           Kindly provide the location details for the property requiring
           cleaning.
         </Text>
-        <Grid columns={8} mt={'md'}>
+        <Grid columns={8} mt={"md"}>
           <Grid.Col span={5}>
             <TextInput label="Address" placeholder="Address...." />
           </Grid.Col>
@@ -230,17 +252,27 @@ export default function FindPriceStepper() {
           <Grid.Col span={3}>
             <TextInput label="Postal Code" placeholder="Postal Code here.." />
           </Grid.Col>
+          <Grid.Col span={3}>
+            <DateTimePicker
+              label="Date and time to arrive"
+              withAsterisk
+              description="Input description"
+              placeholder="Input placeholder"
+            />
+          </Grid.Col>
         </Grid>
       </Box>
       <Divider my={"lg"} />
       <Box className={classes.step5}>
-        <Title c={'yellow'} order={4}>Special note?</Title>
+        <Title c={"yellow"} order={4}>
+          Special note?
+        </Title>
         <Text size="md" c="dimmed">
           Kindly furnish information regarding property access, including keypad
           codes, parking details, and any additional particulars you deem
           important for us to be aware of in relation to your residence.
         </Text>
-        <Grid mt={'md'} columns={8}>
+        <Grid mt={"md"} columns={8}>
           <Grid.Col span={6}>
             <Textarea
               label="Note"
@@ -256,6 +288,10 @@ export default function FindPriceStepper() {
           </Grid.Col>
         </Grid>
       </Box>
+      <Divider my={"lg"} />
+
+      <Invoice />
+      <Button my={'xl'} size={'lg'} fullWidth>Book Now</Button>
     </Container>
   );
 }

@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { ChecklistCard } from "../Cards/ChecklistCard";
-import { CheckListData } from "~/types/LandingPagePropsType";
+import { CheckListData, CrossForSection } from "~/types/LandingPagePropsType";
 import { Button, Center, Container, Group, Text } from "@mantine/core";
 import { checkListData } from "~/data/cleaningCategory";
 
@@ -54,7 +54,7 @@ const CheckListSection = () => {
             imageUrl={e.imageUrl}
             header={e.header}
             points={e.points}
-            crossFromInt={e.crossForSection.find(e=>e.tag === selectedPackage)?.from}
+            crossFromInt={getCrossFromInt(e.crossForSection.find(e=>e.tag === selectedPackage))}
           />
         ))}
       </Group>
@@ -62,5 +62,9 @@ const CheckListSection = () => {
     </>
   );
 };
+
+const getCrossFromInt = (element:CrossForSection):number=>{
+  return 5;
+}
 
 export default CheckListSection;
