@@ -1,4 +1,4 @@
-import { Text, SimpleGrid, Container, rem, Title, Flex } from '@mantine/core';
+import { SimpleGrid, Container, Title, Flex } from '@mantine/core';
 import { IconHome2, IconHomeCog, IconHandMove, IconHomeMove, IconMenuDeep, IconAirConditioningDisabled } from '@tabler/icons-react';
 import { FeatureCard } from '../Cards/FeatureCard';
 

@@ -1,7 +1,7 @@
 import React from "react";
-import { Card, Text, Group, Switch, Container, Box, Paper, Divider } from "@mantine/core";
+import { Text, Group, Container, Paper, Divider } from "@mantine/core";
 import classes from "./Invoice.module.css";
-import { IconBrandSuperhuman, IconCalendarPin, IconUser } from "@tabler/icons-react";
+import { IconCalendarPin, IconUser } from "@tabler/icons-react";
 
 const Invoice = () => {
   const data = [

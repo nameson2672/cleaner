@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {type ReactElement } from 'react'
 import { ContactUs } from '~/components/Contact/ContactUs'
 import Layout from './layout';
 

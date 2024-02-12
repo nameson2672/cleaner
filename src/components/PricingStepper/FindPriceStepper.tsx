@@ -2,17 +2,13 @@ import { useState } from "react";
 import {
   Box,
   Container,
-  Flex,
   Grid,
   Text,
   Select,
   SimpleGrid,
-  Stepper,
   TextInput,
   Textarea,
   Title,
-  Space,
-  Highlight,
   Divider,
   Button,
 } from "@mantine/core";
@@ -21,7 +17,7 @@ import { useForm } from "@mantine/form";
 import classes from "./FindPriceStepper.module.css";
 import CustomClickChangeCard from "../CustomClickChangeCard/CustomClickChangeCard";
 import { CustomClean } from "~/data/CustomClean";
-import { CustomClickChangeCardProp } from "~/types/CustomClickChangeCardProps";
+import { type CustomClickChangeCardProp } from "~/types/CustomClickChangeCardProps";
 import Invoice from "../Invoice/Invoice";
 
 export default function FindPriceStepper() {

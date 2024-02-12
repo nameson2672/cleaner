@@ -1,4 +1,4 @@
-import { Overlay, Container, Title, Button, Text, List, ThemeIcon, Group, Image } from '@mantine/core';
+import { Overlay, Container, Title, Text } from '@mantine/core';
 import classes from './Hero.module.css';
 
 export function Hero() {

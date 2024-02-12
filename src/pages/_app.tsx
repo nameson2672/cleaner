@@ -1,10 +1,10 @@
 import { type Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
-import { AppProps, type AppType } from "next/app";
+import { type AppProps } from "next/app";
 import { api } from "~/utils/api";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import '@mantine/core/styles.css';
-import { createTheme, MantineProvider, MantineColorsTuple } from '@mantine/core';
+import { createTheme, MantineProvider, type MantineColorsTuple } from '@mantine/core';
 
 const myColor: MantineColorsTuple = [
   '#ffe9f1',
@@ -24,8 +24,8 @@ const theme = createTheme({
     myColor,
   }
 });
-import { ReactElement, ReactNode } from "react";
-import { NextPage } from "next";
+import { type ReactElement, type ReactNode } from "react";
+import { type NextPage } from "next";
 import '@mantine/dates/styles.css';
 
 export type NextPageWithLayout<P = object, IP = P> = NextPage<P, IP> & {

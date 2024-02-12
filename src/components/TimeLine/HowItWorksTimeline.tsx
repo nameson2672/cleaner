@@ -1,6 +1,6 @@
 import { Image,Timeline, Text, Container, Title, Grid } from '@mantine/core';
-import { IconGitBranch, IconGitPullRequest, IconGitCommit, IconMessageDots, IconPhoneCall, IconCalendarClock, IconCar, IconCash } from '@tabler/icons-react';
-import classes from "./HowItWorksTimeline.module.css";
+import { IconPhoneCall, IconCalendarClock, IconCar, IconCash } from '@tabler/icons-react';
+import classes from "./HowItWorksTimeline.module.css" assert {type: 'css'};
 
 export function HowItWorksTimeline() {
   return (

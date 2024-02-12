@@ -1,5 +1,5 @@
-import { IconCheck, IconCircleCheck, IconCircleDashed, IconX } from "@tabler/icons-react";
-import { Card, Image, List, Mark, Text, ThemeIcon, Title, rem } from "@mantine/core";
+import { IconCheck, IconX } from "@tabler/icons-react";
+import { Card, Image, List, ThemeIcon, Title, rem } from "@mantine/core";
 import classes from "./ChecklistCard.module.css";
 
 export interface CheckListCardProps {

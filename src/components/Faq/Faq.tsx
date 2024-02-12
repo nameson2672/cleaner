@@ -1,5 +1,4 @@
 import { Image, Accordion, Grid, Container, Title } from "@mantine/core";
-import image from "./image.svg";
 import classes from "./Faq.module.css";
 
 const placeholder = [

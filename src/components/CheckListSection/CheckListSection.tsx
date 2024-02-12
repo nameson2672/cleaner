@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { ChecklistCard } from "../Cards/ChecklistCard";
-import { CheckListData, CrossForSection } from "~/types/LandingPagePropsType";
+import { type CheckListData, type CrossForSection } from "~/types/LandingPagePropsType";
 import { Button, Center, Container, Group, Text } from "@mantine/core";
 import { checkListData } from "~/data/cleaningCategory";
 
@@ -17,7 +17,7 @@ const CheckListSection = () => {
     <Button.Group m={'xl'}>
         <Button
           size="lg"
-          onClick={(e) => getMyType(1)}
+          onClick={() => getMyType(1)}
           fullWidth
           variant={selectedPackage === 1 ? "filled" : "default"}
           value={1}
@@ -26,7 +26,7 @@ const CheckListSection = () => {
         </Button>
         <Button
           size="lg"
-          onClick={(e) => getMyType(2)}
+          onClick={() => getMyType(2)}
           fullWidth
           variant={selectedPackage === 2 ? "filled" : "default"}
           value={2}
@@ -35,7 +35,7 @@ const CheckListSection = () => {
         </Button>
         <Button
           size="lg"
-          onClick={(e) => getMyType(3)}
+          onClick={() => getMyType(3)}
           fullWidth
           variant={selectedPackage === 3 ? "filled" : "default"}
           value={3}
@@ -63,7 +63,7 @@ const CheckListSection = () => {
   );
 };
 
-const getCrossFromInt = (element:CrossForSection):number=>{
+const getCrossFromInt = ():number=>{
   return 5;
 }
 

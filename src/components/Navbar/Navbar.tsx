@@ -16,7 +16,6 @@ const links = [
 export function Navbar() {
   const [opened, { toggle }] = useDisclosure(false);
   const [active, setActive] = useState(links[0]?.link);
-  const router = useRouter();
 
   const items = links.map((link) => (
     <div onClick={(event) => {

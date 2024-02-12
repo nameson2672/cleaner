@@ -2,7 +2,7 @@ import Layout from "./layout";
 import { Hero } from "~/components/Hero/Hero";
 import { FeaturesSection } from "~/components/FeatureSection/FeatureSection";
 import CheckListSection from "~/components/CheckListSection/CheckListSection";
-import { ReactElement } from "react";
+import { type ReactElement } from "react";
 import { HowItWorksTimeline } from "~/components/TimeLine/HowItWorksTimeline";
 import { ContactUs } from "~/components/Contact/ContactUs";
 import { Faq } from "~/components/Faq/Faq";
