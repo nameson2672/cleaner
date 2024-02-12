@@ -1,6 +1,6 @@
-import React from 'react'
+import  { type ReactElement } from 'react'
 import Layout from './layout';
-import { FeaturesSection } from '~/components/FetureSection/FetureSectin';
+import { FeaturesSection } from '~/components/FeatureSection/FeatureSection';
 import { ServiceEmailBanner } from '~/components/ServiceEmailBanner/ServiceEmailBanner';
 
 function Services() {

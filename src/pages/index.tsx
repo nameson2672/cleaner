@@ -1,6 +1,6 @@
 import Layout from "./layout";
 import { Hero } from "~/components/Hero/Hero";
-import { FeaturesSection } from "~/components/FetureSection/FetureSectin";
+import { FeaturesSection } from "~/components/FeatureSection/FeatureSection";
 import CheckListSection from "~/components/CheckListSection/CheckListSection";
 import { ReactElement } from "react";
 import { HowItWorksTimeline } from "~/components/TimeLine/HowItWorksTimeline";
