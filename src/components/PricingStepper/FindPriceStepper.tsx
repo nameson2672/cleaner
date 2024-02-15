@@ -13,7 +13,7 @@ import {
   Button,
 } from "@mantine/core";
 import { DateTimePicker } from "@mantine/dates";
-import { useForm } from "@mantine/form";
+import { TransformedValues, useForm } from "@mantine/form";
 import classes from "./FindPriceStepper.module.css";
 import CustomClickChangeCard from "../CustomClickChangeCard/CustomClickChangeCard";
 import { CustomClean } from "~/data/CustomClean";
@@ -25,10 +25,21 @@ export default function FindPriceStepper() {
   const data = CustomClean as CustomClickChangeCardProp[];
   const form = useForm({
     initialValues: {
-      noOfBedrooms: "",
+      noOfBedrooms: 0,
       noOfBathrooms: "",
       noOfHalfBathrooms: "",
       area: "",
+      firstName: "",
+      lastName:"",
+      email:"",
+      phone:"",
+      address:"",
+      city:"",
+      postalCode:"",
+      dateTimeToArrive:"",
+      note: "",
+      garbageInfo:"",
+      suit:""
     },
   });
   const items = [
@@ -36,7 +47,6 @@ export default function FindPriceStepper() {
     { description: "Gadget", quantity: 1, price: 20 },
     { description: "Thingamajig", quantity: 3, price: 15 },
   ];
-
   const total = items.reduce(
     (acc, item) => acc + item.quantity * item.price,
     0
@@ -84,21 +94,21 @@ export default function FindPriceStepper() {
               label="Bedrooms"
               placeholder="Number of Bedrooms"
               data={[
-                "0 Bedroom",
-                "1 Bedroom",
-                "1.5 Bedroom",
-                "2 Bedroom",
-                "2.5 Bedroom",
-                "3 Bedroom",
-                "3.5 Bedroom",
-                "4 Bedroom",
-                "4.5 Bedroom",
-                "5 Bedroom",
-                "5.5 Bedroom",
-                "6 Bedroom",
-                "6.5 Bedroom",
-                "7 Bedroom",
-                "7.5 Bedroom",
+                { value: '"0"', label: "0 Bedroom" },
+                { label: "1 Bedroom", value: "1" },
+                { label: "1.5 Bedroom", value: "1.5" },
+                { label: "2 Bedroom", value: "2" },
+                { label: "2.5 Bedroom", value: "2.5" },
+                { label: "3 Bedroom", value: "3" },
+                { label: "3.5 Bedroom", value: "3.5" },
+                { label: "4 Bedroom", value: "4" },
+                { label: "4.5 Bedroom", value: "4.5" },
+                { label: "5 Bedroom", value: "5" },
+                { label: "5.5 Bedroom", value: "5.5" },
+                { label: "6 Bedroom", value: "6" },
+                { label: "6.5 Bedroom", value: "6.5" },
+                { label: "7 Bedroom", value: "7" },
+                { label: "7.5 Bedroom", value: "7.5" },
               ]}
               min={1}
               withAsterisk
@@ -111,14 +121,14 @@ export default function FindPriceStepper() {
               label="Bathrooms"
               placeholder="Number of Bathrooms"
               data={[
-                "0 Bathroom",
-                "1 Bathroom",
-                "2 Bathroom",
-                "3 Bathroom",
-                "4 Bathroom",
-                "5 Bathroom",
-                "6 Bathroom",
-                "7 Bathroom",
+                { label: "0 Bathroom", value: "0" },
+                { label: "1 Bathroom", value: "1" },
+                { label: "2 Bathroom", value: "2" },
+                { label: "3 Bathroom", value: "3" },
+                { label: "4 Bathroom", value: "4" },
+                { label: "5 Bathroom", value: "5" },
+                { label: "6 Bathroom", value: "6" },
+                { label: "7 Bathroom", value: "7" },
               ]}
               min={1}
               mt="md"
@@ -134,17 +144,17 @@ export default function FindPriceStepper() {
               description="This is the expected area of a room"
               placeholder="Area of the cleaning place"
               data={[
-                "500-999 Sqft",
-                "1000-1499 Sqft",
-                "1500-1999 Sqft",
-                "2000-2499 Sqft",
-                "2500-2999 Sqft",
-                "3000-3499 Sqft",
-                "3500-3999 Sqft",
-                "4000-4499 Sqft",
-                "4500-4999 Sqft",
-                "5000-5499 Sqft",
-                "5500-55944 Sqft",
+                { label: "500-999 Sqft", value: "500-999" },
+                { label: "1000-1499 Sqft", value: "1000-1499" },
+                { label: "1500-1999 Sqft", value: "1500-1999" },
+                { label: "2000-2499 Sqft", value: "2000-2499" },
+                { label: "2500-2999 Sqft", value: "2500-2999" },
+                { label: "3000-3499 Sqft", value: "3000-3499" },
+                { label: "3500-3999 Sqft", value: "3500-3999" },
+                { label: "4000-4499 Sqft", value: "4000-4499" },
+                { label: "4500-4999 Sqft", value: "4500-4999" },
+                { label: "5000-5499 Sqft", value: "5000-5499" },
+                { label: "5500-55944 Sqft", value: "5500-55944" },
               ]}
               {...form.getInputProps("area")}
             />
@@ -157,14 +167,14 @@ export default function FindPriceStepper() {
               mt="md"
               withAsterisk
               data={[
-                "0 Half Bathrooms",
-                "1 Half Bathrooms",
-                "2 Half Bathrooms",
-                "3 Half Bathrooms",
-                "4 Half Bathrooms",
-                "5 Half Bathrooms",
-                "6 Half bathrooms",
-                "7 Half Bathrooms",
+                { label: "0 Half Bathrooms", value: "0" },
+                { label: "1 Half Bathrooms", value: "1" },
+                { label: "2 Half Bathrooms", value: "2" },
+                { label: "3 Half Bathrooms", value: "3" },
+                { label: "4 Half Bathrooms", value: "4" },
+                { label: "5 Half Bathrooms", value: "5" },
+                { label: "6 Half Bathrooms", value: "6" },
+                { label: "7 Half Bathrooms", value: "7" },
               ]}
               description="Bathrooms having a skink and a toilet is called half bathrooms"
               {...form.getInputProps("noOfHalfBathrooms")}
@@ -206,20 +216,22 @@ export default function FindPriceStepper() {
           <Grid.Col span={3}>
             <TextInput
               label="First Name"
+              {...form.getInputProps("firstName")}
               placeholder="Type your first name here...."
             />
           </Grid.Col>
           <Grid.Col span={3}>
             <TextInput
               label="Last Name"
+              {...form.getInputProps("lastName")}
               placeholder="Type your last name here...."
             />
           </Grid.Col>
           <Grid.Col span={3}>
-            <TextInput label="Email" placeholder="Email" />
+            <TextInput label="Email"  {...form.getInputProps("email")} placeholder="Email" />
           </Grid.Col>
           <Grid.Col span={3}>
-            <TextInput label="Phone Number" placeholder="Phone number" />
+            <TextInput label="Phone Number" {...form.getInputProps("phone")} placeholder="Phone number" />
           </Grid.Col>
         </Grid>
       </Box>
@@ -234,24 +246,26 @@ export default function FindPriceStepper() {
         </Text>
         <Grid columns={8} mt={"md"}>
           <Grid.Col span={5}>
-            <TextInput label="Address" placeholder="Address...." />
+            <TextInput label="Address" {...form.getInputProps("address")} placeholder="Address...." />
           </Grid.Col>
           <Grid.Col span={2}>
             <TextInput
               label="Apt/Suite"
+              {...form.getInputProps("suit")}
               placeholder="Apartment and Suit Number..."
             />
           </Grid.Col>
           <Grid.Col span={4}>
-            <TextInput label="City" placeholder="City" />
+            <TextInput label="City" {...form.getInputProps("city")} placeholder="City" />
           </Grid.Col>
           <Grid.Col span={3}>
-            <TextInput label="Postal Code" placeholder="Postal Code here.." />
+            <TextInput label="Postal Code" {...form.getInputProps("postalCode")} placeholder="Postal Code here.." />
           </Grid.Col>
           <Grid.Col span={3}>
             <DateTimePicker
               label="Date and time to arrive"
               withAsterisk
+              {...form.getInputProps("dateTimeToArrive")}
               description="Input description"
               placeholder="Input placeholder"
             />
@@ -272,12 +286,14 @@ export default function FindPriceStepper() {
           <Grid.Col span={6}>
             <Textarea
               label="Note"
+              {...form.getInputProps("note")}
               placeholder="Anything you think we should know..."
             />
           </Grid.Col>
 
           <Grid.Col span={6}>
             <TextInput
+            {...form.getInputProps("garbageInfo")}
               label="About Garbage"
               placeholder="Where should we place the collected garbage at the property?"
             />
@@ -287,7 +303,14 @@ export default function FindPriceStepper() {
       <Divider my={"lg"} />
 
       <Invoice />
-      <Button my={'xl'} size={'lg'} fullWidth>Book Now</Button>
+      <Button
+        onClick={(e) => console.log(form.values)}
+        my={"xl"}
+        size={"lg"}
+        fullWidth
+      >
+        Book Now
+      </Button>
     </Container>
   );
 }

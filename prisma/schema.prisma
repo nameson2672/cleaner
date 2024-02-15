@@ -1,29 +1,27 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-generator client {
-    provider = "prisma-client-js"
-}
-
 datasource db {
-    provider = "sqlite"
-    // NOTE: When using mysql or sqlserver, uncomment the @db.Text annotations in model Account below
-    // Further reading:
-    // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema
-    // https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#string
-    url      = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
 }
 
-model Post {
-    id        Int      @id @default(autoincrement())
-    name      String
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+generator client {
+  provider = "prisma-client-js"
+}
 
+model Booking {
+    id          Int      @id @default(autoincrement())
+    email       String
+    address     String
+    cleaningDate String
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
     createdBy   User   @relation(fields: [createdById], references: [id])
     createdById String
 
-    @@index([name])
+    @@index([email])
 }
 
 // Necessary for Next auth
@@ -40,7 +38,7 @@ model Account {
     scope             String?
     id_token          String? // @db.Text
     session_state     String?
-    user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+    user              User    @relation(fields: [userId], references: [id], onDelete: NoAction)
 
     @@unique([provider, providerAccountId])
 }
@@ -50,7 +48,7 @@ model Session {
     sessionToken String   @unique
     userId       String
     expires      DateTime
-    user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    user         User     @relation(fields: [userId], references: [id], onDelete: NoAction)
 }
 
 model User {
@@ -61,7 +59,7 @@ model User {
     image         String?
     accounts      Account[]
     sessions      Session[]
-    posts         Post[]
+    bookings         Booking[]
 }
 
 model VerificationToken {
