@@ -1,0 +1,19 @@
+.step1 {
+    width: 100%;
+    transition: all 0.5s ease-in-out ;
+    margin: var(--mantine-spacing-lg) 0 var(--mantine-spacing-md) 0;
+}
+.step2 {
+    margin: var(--mantine-spacing-lg) 0 var(--mantine-spacing-md) 0;
+}
+
+.step3 {
+    margin: var(--mantine-spacing-lg) 0 var(--mantine-spacing-md) 0;
+}
+
+.step4 {
+    margin: var(--mantine-spacing-lg) 0 var(--mantine-spacing-md) 0;
+}
+.step5 {
+    margin: var(--mantine-spacing-lg) 0 var(--mantine-spacing-md) 0;
+}
