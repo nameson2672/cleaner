@@ -54,7 +54,7 @@ const CheckListSection = () => {
             imageUrl={e.imageUrl}
             header={e.header}
             points={e.points}
-            crossFromInt={getCrossFromInt(e.crossForSection.find(e=>e.tag === selectedPackage))}
+            crossFromInt={getCrossFromInt()}
           />
         ))}
       </Group>

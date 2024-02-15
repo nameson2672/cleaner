@@ -22,7 +22,7 @@ const Invoice = () => {
       amount: 2.66,
     },
   ];
-  let total = 22;
+  const total = 22;
   return (
     <Container ml={0} pl={0} mb={'lg'} size={'xs'} >
         <Paper withBorder  shadow="xl" p="xl">
