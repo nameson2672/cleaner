@@ -22,14 +22,17 @@ import {
   type CustomClickChangeCardProp,
 } from "~/types/CustomClickChangeCardProps";
 import Invoice from "../Invoice/Invoice";
+import { type PriceFormType } from "~/types/PriceFormType";
+import { usePackageToInvoice } from "~/hooks/usePackageToInvoice";
 
 export default function FindPriceStepper() {
   const data = CustomClean as CustomClickChangeCardProp[];
-  const form = useForm({
+  const form = useForm<PriceFormType>({
     initialValues: {
       noOfBedrooms: 0,
       noOfBathrooms: "",
       noOfHalfBathrooms: "",
+      corePackage:"",
       area: "",
       firstName: "",
       lastName: "",
@@ -38,38 +41,31 @@ export default function FindPriceStepper() {
       address: "",
       city: "",
       postalCode: "",
-      dateTimeToArrive: "",
+      dateTimeToArrive: null,
       note: "",
       garbageInfo: "",
       suit: "",
-      selectedPackage: [""],
+      selectedPackage: [],
     },
     validate: {
       phone: (value) =>
         value.length < 10 ? "Please provide the valid number" : null,
       dateTimeToArrive: (value) =>
-        Date.parse(value) < Date.now() ? "Please provide the valid date" : null,
+        value != null && value.getTime() < Date.now() ? "Please provide the valid date" : null,
       email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
     },
   });
   const [selectedPackage, setSelectedPackage] = useState<SelectedPackageInfo[]>(
     []
   );
-  const items = [
-    { description: "Widget", quantity: 2, price: 10 },
-    { description: "Gadget", quantity: 1, price: 20 },
-    { description: "Thingamajig", quantity: 3, price: 15 },
-  ];
-  const total = items.reduce(
-    (acc, item) => acc + item.quantity * item.price,
-    0
-  );
-  useEffect(() => {
-    console.log(selectedPackage);
-  }, [selectedPackage]);
+  const invoiceData = usePackageToInvoice(form.values);
+
+  form.values.selectedPackage = selectedPackage;
+
+
 
   return (
-    <form onSubmit={form.onSubmit(console.log)}>
+    <form onSubmit={form.onSubmit(e=>console.log(e))}>
       <Container>
         <Box className={classes.step1}>
           <Title c={"yellow"} order={4}>
@@ -103,7 +99,7 @@ export default function FindPriceStepper() {
             placeholder="Select package according to your need"
             withAsterisk
             description="House cleaning is used for apartment cleaning"
-            {...form.getInputProps("noOfBedrooms")}
+            {...form.getInputProps("corePackage")}
           />
           <Divider my="md" />
           <Grid columns={8}>
@@ -216,7 +212,7 @@ export default function FindPriceStepper() {
               <CustomClickChangeCard
                 imageUrl={e.imageUrl}
                 name={e.name}
-                price={0}
+                price={e.price}
                 description={e.description}
                 selection={selectedPackage}
                 setSelection={setSelectedPackage}
@@ -342,7 +338,7 @@ export default function FindPriceStepper() {
         </Box>
         <Divider my={"lg"} />
 
-        <Invoice />
+        <Invoice  {...invoiceData}/>
         {!form.isValid()
           ? Object.keys(form.errors).map((val, key) => (
               <Text c={"red"} key={key}>
