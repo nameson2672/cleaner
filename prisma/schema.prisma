@@ -13,15 +13,13 @@ generator client {
 
 model Booking {
     id          Int      @id @default(autoincrement())
-    email       String
     address     String
-    cleaningDate String
+    cleaningDate DateTime
+    packages    String      @db.VarChar(250)
     createdAt   DateTime @default(now())
     updatedAt   DateTime @updatedAt
     createdBy   User   @relation(fields: [createdById], references: [id])
     createdById String
-
-    @@index([email])
 }
 
 // Necessary for Next auth
