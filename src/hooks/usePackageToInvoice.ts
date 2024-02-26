@@ -43,7 +43,7 @@ const priceData = {
     addBeadRoom :20,
     perBathrooms: 30,
     perHalfBathrooms: 15,
-    per500Sqft: 30
+    per500Sqft: 20
 }
 
 function creatPackageInfo(title:string, amount:number) : PerPackageInfo{

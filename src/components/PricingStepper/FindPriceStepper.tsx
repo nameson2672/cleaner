@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   Box,
   Container,
@@ -21,11 +21,11 @@ import {
   type SelectedPackageInfo,
   type CustomClickChangeCardProp,
 } from "~/types/CustomClickChangeCardProps";
-import Invoice, { InvoicePropType } from "../Invoice/Invoice";
+import Invoice, { type InvoicePropType } from "../Invoice/Invoice";
 import { type PriceFormType } from "~/types/PriceFormType";
 import { usePackageToInvoice } from "~/hooks/usePackageToInvoice";
-import { clientCallTypeToProcedureType } from "@trpc/client";
 import { api } from "~/utils/api";
+
 
 export default function FindPriceStepper() {
   const data = CustomClean as CustomClickChangeCardProp[];
@@ -60,18 +60,22 @@ export default function FindPriceStepper() {
   const [selectedPackage, setSelectedPackage] = useState<SelectedPackageInfo[]>(
     []
   );
+  
+  
   const invoiceData = usePackageToInvoice(form.values);
   const bookingMutation = api.booking.create.useMutation();
+  //const paymentRedirect = api.stripePayment.session.useMutation();
   form.values.selectedPackage = selectedPackage;
 
  const addBookingToDb=(bookingInfo: InvoicePropType)=>{
   const bookingId =  bookingMutation.mutate(bookingInfo);
-  console.log("bookingId");
+  //const redirectto =  paymentRedirect.mutate();
   return {} as InvoicePropType
  }
 
   return (
-    <form onSubmit={form.onSubmit(e=>addBookingToDb(invoiceData))}>
+    
+    <form onSubmit={form.onSubmit(()=>addBookingToDb(invoiceData))}>
       <Container>
         <Box className={classes.step1}>
           <Title c={"yellow"} order={4}>

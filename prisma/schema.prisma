@@ -20,6 +20,8 @@ model Booking {
     updatedAt   DateTime @updatedAt
     createdBy   User   @relation(fields: [createdById], references: [id])
     createdById String
+
+    @@index([createdById])
 }
 
 // Necessary for Next auth
@@ -39,6 +41,7 @@ model Account {
     user              User    @relation(fields: [userId], references: [id], onDelete: NoAction)
 
     @@unique([provider, providerAccountId])
+    @@index([userId])
 }
 
 model Session {
@@ -47,6 +50,8 @@ model Session {
     userId       String
     expires      DateTime
     user         User     @relation(fields: [userId], references: [id], onDelete: NoAction)
+
+    @@index([userId])
 }
 
 model User {
