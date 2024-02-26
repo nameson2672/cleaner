@@ -1,173 +1,187 @@
 import {
-    Body,
-    Container,
-    Head,
-    Heading,
-    Hr,
-    Html,
-    Img,
-    Link,
-    Preview,
-    Section,
-    Text,
-  } from "@react-email/components";
-  import * as React from "react";
-  
-  interface AWSVerifyEmailProps {
-    verificationCode?: string;
-  }
-  
-  const baseUrl = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : "";
-  
-  export function BookingEmail({
-    verificationCode = "596853",
-  }: AWSVerifyEmailProps) {
-    return (
-      <Html>
-        <Head />
-        <Preview>Billing Info</Preview>
-        <Body style={main}>
-          <Container style={container}>
-            <Section style={coverSection}>
-              <Section style={imageSection}>
-                <Img
-                  src={`${baseUrl}/static/aws-logo.png`}
-                  width="75"
-                  height="45"
-                  alt="Cleaners logo"
-                />
-              </Section>
-              <Section style={upperSection}>
-                <Heading style={h1}>Verify your email address</Heading>
-                <Text style={mainText}>
-                  Thanks for starting the new AWS account creation process. We
-                  want to make sure it's really you. Please enter the following
-                  verification code when prompted. If you don&apos;t want to
-                  create an account, you can ignore this message.
+  Body,
+  Button,
+  Container,
+  Column,
+  Head,
+  Heading,
+  Html,
+  Img,
+  Preview,
+  Row,
+  Section,
+  Text,
+} from "@react-email/components";
+import * as React from "react";
+
+interface BookingInfoEmailProps {
+  userFirstName?: string;
+  bookedDate?: Date;
+  address?: string;
+  loginIp?: string;
+}
+
+const baseUrl = process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : "";
+
+export const BookingInfoEmail = ({
+  userFirstName,
+  bookedDate,
+  address
+}: BookingInfoEmailProps) => {
+  const formattedDate = new Intl.DateTimeFormat("en", {
+    dateStyle: "long",
+    timeStyle: "short",
+  }).format(bookedDate);
+
+  return (
+    <Html>
+      <Head />
+      <Preview>Cleaning Booking Info</Preview>
+      <Body style={main}>
+        <Container>
+          <Section style={logo}>
+            <Img src={`${baseUrl}/static/yelp-logo.png`} />
+          </Section>
+
+          <Section style={content}>
+            <Row>
+              <Img
+                style={image}
+                width={620}
+                src={`${baseUrl}/static/yelp-header.png`}
+              />
+            </Row>
+
+            <Row style={{ ...boxInfos, paddingBottom: "0" }}>
+              <Column>
+                <Heading
+                  style={{
+                    fontSize: 32,
+                    fontWeight: "bold",
+                    textAlign: "center",
+                  }}
+                >
+                  Hi {userFirstName},
+                </Heading>
+                <Heading
+                  as="h2"
+                  style={{
+                    fontSize: 26,
+                    fontWeight: "bold",
+                    textAlign: "center",
+                  }}
+                >
+                  Here is your boooking info
+                </Heading>
+
+                <Text style={paragraph}>
+                  <b>Date booked for: </b>
+                  {formattedDate}
                 </Text>
-                <Section style={verificationSection}>
-                  <Text style={verifyText}>Verification code</Text>
-  
-                  <Text style={codeText}>{verificationCode}</Text>
-                  <Text style={validityText}>
-                    (This code is valid for 10 minutes)
-                  </Text>
-                </Section>
-              </Section>
-              <Hr />
-              <Section style={lowerSection}>
-                <Text style={cautionText}>
-                  Amazon Web Services will never email you and ask you to disclose
-                  or verify your password, credit card, or banking account number.
+                <Text style={{ ...paragraph, marginTop: -5 }}>
+                  <b>Device: </b>
+                  {loginDevice}
                 </Text>
-              </Section>
-            </Section>
-            <Text style={footerText}>
-              This message was produced and distributed by Amazon Web Services,
-              Inc., 410 Terry Ave. North, Seattle, WA 98109. © 2022, Amazon Web
-              Services, Inc.. All rights reserved. AWS is a registered trademark
-              of{" "}
-              <Link href="https://amazon.com" target="_blank" style={link}>
-                Amazon.com
-              </Link>
-              , Inc. View our{" "}
-              <Link href="https://amazon.com" target="_blank" style={link}>
-                privacy policy
-              </Link>
-              .
-            </Text>
-          </Container>
-        </Body>
-      </Html>
-    );
-  }
-  
-  const main = {
-    backgroundColor: "#fff",
-    color: "#212121",
-  };
-  
-  const container = {
-    padding: "20px",
-    margin: "0 auto",
-    backgroundColor: "#eee",
-  };
-  
-  const h1 = {
-    color: "#333",
-    fontFamily:
-      "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
-    fontSize: "20px",
-    fontWeight: "bold",
-    marginBottom: "15px",
-  };
-  
-  const link = {
-    color: "#2754C5",
-    fontFamily:
-      "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
-    fontSize: "14px",
-    textDecoration: "underline",
-  };
-  
-  const text = {
-    color: "#333",
-    fontFamily:
-      "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
-    fontSize: "14px",
-    margin: "24px 0",
-  };
-  
-  const imageSection = {
-    backgroundColor: "#252f3d",
-    display: "flex",
-    padding: "20px 0",
-    alignItems: "center",
-    justifyContent: "center",
-  };
-  
-  const coverSection = { backgroundColor: "#fff" };
-  
-  const upperSection = { padding: "25px 35px" };
-  
-  const lowerSection = { padding: "25px 35px" };
-  
-  const footerText = {
-    ...text,
-    fontSize: "12px",
-    padding: "0 20px",
-  };
-  
-  const verifyText = {
-    ...text,
-    margin: 0,
-    fontWeight: "bold",
-    textAlign: "center" as const,
-  };
-  
-  const codeText = {
-    ...text,
-    fontWeight: "bold",
-    fontSize: "36px",
-    margin: "10px 0",
-    textAlign: "center" as const,
-  };
-  
-  const validityText = {
-    ...text,
-    margin: "0px",
-    textAlign: "center" as const,
-  };
-  
-  const verificationSection = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  };
-  
-  const mainText = { ...text, marginBottom: "14px" };
-  
-  const cautionText = { ...text, margin: "0px" };
-  
+                <Text style={{ ...paragraph, marginTop: -5 }}>
+                  <b>Address: </b>
+                  {address}
+                </Text>
+                <Text
+                  style={{
+                    color: "rgb(0,0,0, 0.5)",
+                    fontSize: 14,
+                    marginTop: -5,
+                  }}
+                >
+                  *Arrival time subject to vary by hour.
+                </Text>
+
+                <Text style={paragraph}>
+                  You will recive other email regrading booking invoice.
+                </Text>
+                <Text style={{ ...paragraph, marginTop: -5 }}>
+                  If anything is wrong please dont hegigate to contact us.
+                </Text>
+              </Column>
+            </Row>
+            <Row style={{ ...boxInfos, paddingTop: "0" }}>
+              <Column style={containerButton} colSpan={2}>
+                <Button style={button}>Learn More</Button>
+              </Column>
+            </Row>
+          </Section>
+
+          <Section style={containerImageFooter}>
+            <Img
+              style={image}
+              width={620}
+              src={`${baseUrl}/static/yelp-footer.png`}
+            />
+          </Section>
+
+          <Text
+            style={{
+              textAlign: "center",
+              fontSize: 12,
+              color: "rgb(0,0,0, 0.7)",
+            }}
+          >
+            © 2022 | Yelp Inc., 350 Mission Street, San Francisco, CA 94105,
+            U.S.A. | www.yelp.com
+          </Text>
+        </Container>
+      </Body>
+    </Html>
+  );
+};
+
+
+const main = {
+  backgroundColor: "#fff",
+  fontFamily:
+    '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
+};
+
+const paragraph = {
+  fontSize: 16,
+};
+
+const logo = {
+  padding: "30px 20px",
+};
+
+const containerButton = {
+  display: "flex",
+  justifyContent: "center",
+  width: "100%",
+};
+
+const button = {
+  backgroundColor: "#e00707",
+  borderRadius: 3,
+  color: "#FFF",
+  fontWeight: "bold",
+  border: "1px solid rgb(0,0,0, 0.1)",
+  cursor: "pointer",
+  padding: "12px 30px",
+};
+
+const content = {
+  border: "1px solid rgb(0,0,0, 0.1)",
+  borderRadius: "3px",
+  overflow: "hidden",
+};
+
+const image = {
+  maxWidth: "100%",
+};
+
+const boxInfos = {
+  padding: "20px",
+};
+
+const containerImageFooter = {
+  padding: "45px 0 0 0",
+};
