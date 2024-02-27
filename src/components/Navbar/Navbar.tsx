@@ -5,6 +5,8 @@ import { MantineLogo } from '@mantinex/mantine-logo';
 import classes from './Navbar.module.css';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Image from 'next/image';
+import logo from '../../../public/hero.svg'
 
 const links = [
   { link: '/', label: 'Home' },
@@ -41,7 +43,7 @@ export function Navbar() {
   return (
     <header className={classes.header}>
       <Container size="md" className={classes.inner}>
-        <MantineLogo size={28} />
+        <Image height={'40'} src={logo as string} alt='Sopy Cleners logo' />
         <Group gap={5} visibleFrom="xs">
           {items}
         </Group>
@@ -50,7 +52,7 @@ export function Navbar() {
       </Container>
       {isMobile &&
         <Drawer offset={2} opened={opened} onClose={toggle}>
-          <MantineLogo size={28} />
+          <Image height={'40'} src={logo as string} alt='Sopy Cleners logo' />
           {items}
         </Drawer>
       }
