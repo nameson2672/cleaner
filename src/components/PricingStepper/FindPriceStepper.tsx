@@ -11,6 +11,7 @@ import {
   Title,
   Divider,
   Button,
+  em,
 } from "@mantine/core";
 import { DateTimePicker } from "@mantine/dates";
 import { useForm } from "@mantine/form";
@@ -26,6 +27,7 @@ import { type PriceFormType } from "~/types/PriceFormType";
 import { usePackageToInvoice } from "~/hooks/usePackageToInvoice";
 import { api } from "~/utils/api";
 import { BookingSuccessModel } from "../UiModal/BookingSuccessModel";
+import { useMediaQuery } from "@mantine/hooks";
 
 
 export default function FindPriceStepper() {
@@ -73,12 +75,12 @@ export default function FindPriceStepper() {
   console.log(bookingId)
   return {} as InvoicePropType
  }
-
+ const isMobile = useMediaQuery(`(max-width: ${em(750)})`);
   return (
     
     <form onSubmit={form.onSubmit(()=>addBookingToDb(invoiceData))}>
       <BookingSuccessModel isModelOpened={bookingMutation.isSuccess} />
-      <Container>
+      <>
         <Box className={classes.step1}>
           <Title c={"yellow"} order={4}>
             "What type of Cleaning you need?"
@@ -114,8 +116,8 @@ export default function FindPriceStepper() {
             {...form.getInputProps("corePackage")}
           />
           <Divider my="md" />
-          <Grid columns={8}>
-            <Grid.Col span={4}>
+          <Grid columns={isMobile?1:8}>
+            <Grid.Col span={isMobile?1:4}>
               <Select
                 label="Bedrooms"
                 placeholder="Number of Bedrooms"
@@ -142,7 +144,7 @@ export default function FindPriceStepper() {
                 {...form.getInputProps("noOfBedrooms")}
               />
             </Grid.Col>
-            <Grid.Col span={4}>
+            <Grid.Col span={isMobile?1:4}>
               <Select
                 label="Bathrooms"
                 placeholder="Number of Bathrooms"
@@ -163,7 +165,7 @@ export default function FindPriceStepper() {
               />
             </Grid.Col>
 
-            <Grid.Col mt={"md"} span={4}>
+            <Grid.Col mt={"md"} span={isMobile?1:4}>
               <Select
                 label="Area in sqft"
                 withAsterisk
@@ -185,7 +187,7 @@ export default function FindPriceStepper() {
                 {...form.getInputProps("area")}
               />
             </Grid.Col>
-            <Grid.Col span={4}>
+            <Grid.Col span={isMobile?1:4}>
               <Select
                 label="Half Bathrooms"
                 placeholder="Number of half bathrooms"
@@ -211,7 +213,7 @@ export default function FindPriceStepper() {
         <Divider my="lg" />
 
         <Box className={classes.step2}>
-          <Title c={"yellow"} order={4}>
+          <Title c={"yellow"} order={isMobile?1:4}>
             Customize your cleaning need?
           </Title>
           <Text>
@@ -241,29 +243,29 @@ export default function FindPriceStepper() {
             This data will be utilized to communicate with you regarding your
             requested service.
           </Text>
-          <Grid mt={"md"} columns={8}>
-            <Grid.Col span={3}>
+          <Grid mt={"md"} columns={isMobile?1:8}>
+            <Grid.Col span={isMobile?1:3}>
               <TextInput
                 label="First Name"
                 {...form.getInputProps("firstName")}
                 placeholder="Type your first name here...."
               />
             </Grid.Col>
-            <Grid.Col span={3}>
+            <Grid.Col span={isMobile?1:3}>
               <TextInput
                 label="Last Name"
                 {...form.getInputProps("lastName")}
                 placeholder="Type your last name here...."
               />
             </Grid.Col>
-            <Grid.Col span={3}>
+            <Grid.Col span={isMobile?1:3}>
               <TextInput
                 label="Email"
                 {...form.getInputProps("email")}
                 placeholder="Email"
               />
             </Grid.Col>
-            <Grid.Col span={3}>
+            <Grid.Col span={isMobile?1:3}>
               <TextInput
                 label="Phone Number"
                 {...form.getInputProps("phone")}
@@ -280,36 +282,36 @@ export default function FindPriceStepper() {
           <Text size="md" c="dimmed">
             {"Kindly provide the location details for the property requiring cleaning."}
           </Text>
-          <Grid columns={8} mt={"md"}>
-            <Grid.Col span={5}>
+          <Grid columns={isMobile?1:8} mt={"md"}>
+            <Grid.Col span={isMobile?1:5}>
               <TextInput
                 label="Address"
                 {...form.getInputProps("address")}
                 placeholder="Address...."
               />
             </Grid.Col>
-            <Grid.Col span={2}>
+            <Grid.Col span={isMobile?1:2}>
               <TextInput
                 label="Apt/Suite"
                 {...form.getInputProps("suit")}
                 placeholder="Apartment and Suit Number..."
               />
             </Grid.Col>
-            <Grid.Col span={4}>
+            <Grid.Col span={isMobile?1:4}>
               <TextInput
                 label="City"
                 {...form.getInputProps("city")}
                 placeholder="City"
               />
             </Grid.Col>
-            <Grid.Col span={3}>
+            <Grid.Col span={isMobile?1:3}>
               <TextInput
                 label="Postal Code"
                 {...form.getInputProps("postalCode")}
                 placeholder="Postal Code here.."
               />
             </Grid.Col>
-            <Grid.Col span={3}>
+            <Grid.Col span={isMobile?1:3}>
               <DateTimePicker
                 label="Date and time to arrive"
                 withAsterisk
@@ -330,8 +332,8 @@ export default function FindPriceStepper() {
             keypad codes, parking details, and any additional particulars you
             deem important for us to be aware of in relation to your residence.
           </Text>
-          <Grid mt={"md"} columns={8}>
-            <Grid.Col span={6}>
+          <Grid mt={"md"} columns={isMobile?1:8}>
+            <Grid.Col span={isMobile?1:6}>
               <Textarea
                 label="Note"
                 {...form.getInputProps("note")}
@@ -339,7 +341,7 @@ export default function FindPriceStepper() {
               />
             </Grid.Col>
 
-            <Grid.Col span={6}>
+            <Grid.Col span={isMobile?1:6}>
               <TextInput
                 {...form.getInputProps("garbageInfo")}
                 label="About Garbage"
@@ -368,7 +370,7 @@ export default function FindPriceStepper() {
         >
           Book Now
         </Button>
-      </Container>
+      </>
     </form>
   );
 }

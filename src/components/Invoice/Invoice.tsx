@@ -24,7 +24,7 @@ const Invoice = (invoiceData: InvoicePropType) => {
   })
   return (
     <Container ml={0} pl={0} mb={'lg'} size={'xs'} >
-      <Paper withBorder shadow="xl" p="xl">
+      <Paper withBorder shadow="xl" p={{base:'xs', md:'xl'}}>
         <Text fz="lg" className={classes.title} fw={500}>
           Booking Summery
         </Text>
@@ -61,6 +61,7 @@ const Invoice = (invoiceData: InvoicePropType) => {
         </Group>
         <Paper mt={'sm'} withBorder radius="md" shadow="md" p="xs">
           <Group
+          display={{ base:'block', md:"flex"}}
             justify="space-between"
             className={classes.item}
             wrap="nowrap"

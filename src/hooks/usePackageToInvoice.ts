@@ -7,7 +7,7 @@ export function usePackageToInvoice(packageSelected: PriceFormType): InvoiceProp
                             name: packageSelected.firstName + " " + packageSelected.lastName, 
                             email: packageSelected.email,
                             dateTimeToArrive : packageSelected.dateTimeToArrive,
-                            address: packageSelected.suit + ", " + packageSelected.address +", "+ packageSelected.city,
+                            address: packageSelected.suit + packageSelected.suit?", ":"" + packageSelected.address + packageSelected.suit?", ":''+ packageSelected.city,
                             packageData: []
                         } as InvoicePropType;
     if(packageSelected.corePackage){
