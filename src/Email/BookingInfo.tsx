@@ -13,12 +13,15 @@ import {
   Text,
 } from "@react-email/components";
 import * as React from "react";
+import { PerPackageInfo } from "~/components/Invoice/Invoice";
 
-interface BookingInfoEmailProps {
+export interface BookingInfoEmailProps {
   userFirstName?: string;
   bookedDate?: Date;
   address?: string;
   loginIp?: string;
+  totalAmount:number;
+  packageData: PerPackageInfo[]
 }
 
 const baseUrl = process.env.VERCEL_URL
@@ -28,7 +31,9 @@ const baseUrl = process.env.VERCEL_URL
 export const BookingInfoEmail = ({
   userFirstName,
   bookedDate,
-  address
+  address,
+  totalAmount,
+  packageData
 }: BookingInfoEmailProps) => {
   const formattedDate = new Intl.DateTimeFormat("en", {
     dateStyle: "long",
@@ -81,8 +86,8 @@ export const BookingInfoEmail = ({
                   {formattedDate}
                 </Text>
                 <Text style={{ ...paragraph, marginTop: -5 }}>
-                  <b>Device: </b>
-                  {loginDevice}
+                  <b>Total Amount: </b>
+                  {totalAmount}
                 </Text>
                 <Text style={{ ...paragraph, marginTop: -5 }}>
                   <b>Address: </b>
@@ -97,10 +102,20 @@ export const BookingInfoEmail = ({
                 >
                   *Arrival time subject to vary by hour.
                 </Text>
-
-                <Text style={paragraph}>
-                  You will recive other email regrading booking invoice.
-                </Text>
+                <Row>
+                    <Column>Item</Column>
+                    <Column>Price</Column>
+                  </Row>
+                  {packageData.map(e=>(
+                    <Row>
+                    <Column>{e.title}</Column>
+                    <Column>{e.amount}</Column>
+                  </Row>
+                  ))}
+                 <Row>
+                    <Column>Totoal</Column>
+                    <Column>{totalAmount}</Column>
+                  </Row>
                 <Text style={{ ...paragraph, marginTop: -5 }}>
                   If anything is wrong please dont hegigate to contact us.
                 </Text>

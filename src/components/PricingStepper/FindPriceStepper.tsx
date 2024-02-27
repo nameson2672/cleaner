@@ -25,6 +25,7 @@ import Invoice, { type InvoicePropType } from "../Invoice/Invoice";
 import { type PriceFormType } from "~/types/PriceFormType";
 import { usePackageToInvoice } from "~/hooks/usePackageToInvoice";
 import { api } from "~/utils/api";
+import { BookingSuccessModel } from "../UiModal/BookingSuccessModel";
 
 
 export default function FindPriceStepper() {
@@ -69,13 +70,14 @@ export default function FindPriceStepper() {
 
  const addBookingToDb=(bookingInfo: InvoicePropType)=>{
   const bookingId =  bookingMutation.mutate(bookingInfo);
-  //const redirectto =  paymentRedirect.mutate();
+  console.log(bookingId)
   return {} as InvoicePropType
  }
 
   return (
     
     <form onSubmit={form.onSubmit(()=>addBookingToDb(invoiceData))}>
+      <BookingSuccessModel isModelOpened={bookingMutation.isSuccess} />
       <Container>
         <Box className={classes.step1}>
           <Title c={"yellow"} order={4}>
@@ -361,6 +363,7 @@ export default function FindPriceStepper() {
           my={"xl"}
           size={"lg"}
           fullWidth
+          loading={bookingMutation.isLoading}
           disabled={!form.isValid() ? true : false}
         >
           Book Now

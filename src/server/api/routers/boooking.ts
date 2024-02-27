@@ -1,12 +1,12 @@
 import { type InvoicePropType } from './../../../components/Invoice/Invoice';
 import { createTRPCRouter, publicProcedure } from "../trpc";
 import { resend } from "../../../utils/resend"
-import {BookingEmail} from '../../../Email/BookingInfo'
+import { BookingInfoEmail, type BookingInfoEmailProps } from '../../../Email/BookingInfo'
 
 export const bookingRouter = createTRPCRouter({
     create: publicProcedure
         .input((bookinInfo) => { return bookinInfo as InvoicePropType })
-        .mutation(async ({ ctx, input }) => {
+        .mutation(async ({ ctx, input }):Promise<number> => {
             console.log(input)
             console.log(JSON.stringify(input.packageData))
             const bookingCreate = await ctx.db.booking.create({
@@ -27,13 +27,21 @@ export const bookingRouter = createTRPCRouter({
                     }
                 }
             });
-            
+            let totalAmount = 0;
+            input.packageData.map(e => totalAmount += e.amount);
+            const emailProp: BookingInfoEmailProps = {
+                userFirstName: input.name,
+                bookedDate: input.dateTimeToArrive,
+                address: input.address,
+                totalAmount,
+                packageData: input.packageData
+            }
             await resend.emails.send({
                 from: "bu@resend.dev",
                 to: "delivered@resend.dev",
                 subject: "Welcome to Toronto Cleaners!",
-                react: BookingEmail({verificationCode:"65465"})
-              });
-            return bookingCreate.id;            
+                react: BookingInfoEmail(emailProp)
+            });
+            return bookingCreate.id;
         })
 })
