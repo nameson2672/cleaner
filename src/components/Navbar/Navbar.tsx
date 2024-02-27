@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Container, Group, Burger } from '@mantine/core';
+import { Container, Group, Burger, Drawer } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { MantineLogo } from '@mantinex/mantine-logo';
 import classes from './Navbar.module.css';
@@ -17,12 +17,14 @@ export function Navbar() {
   const [opened, { toggle }] = useDisclosure(false);
   const [active, setActive] = useState(links[0]?.link);
 
+
   const items = links.map((link) => (
     <div onClick={(event) => {
       event.preventDefault();
       setActive(link.link);
     }}>
     <Link
+      onClick={toggle}
       key={link.label}
       href={link.link}
       className={classes.link}
@@ -44,6 +46,10 @@ export function Navbar() {
 
         <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" />
       </Container>
+      <Drawer offset={2} opened={opened} onClose={toggle}>
+      <MantineLogo size={28} />
+      {items}
+      </Drawer>
     </header>
   );
 }
