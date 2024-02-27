@@ -34,6 +34,9 @@
     padding: var(--mantine-spacing-xl);
     border-radius: var(--mantine-radius-md);
     box-shadow: var(--mantine-shadow-lg);
+    @media (max-width: $mantine-breakpoint-sm) {
+      padding: var(--mantine-spacing-md);
+    }
   }
   
   .social {

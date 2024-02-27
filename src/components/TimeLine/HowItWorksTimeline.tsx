@@ -6,7 +6,7 @@ export function HowItWorksTimeline() {
   return (
     <Container className={classes.container} >
       <Grid id="faq-grid" gutter={50}>
-      <Grid.Col span={{ base: 12, md: 6 }}>
+      <Grid.Col className={classes.image} span={{ base: 12, md: 6 }}>
             <Image src={"https://res.cloudinary.com/ddxsatvd0/image/upload/v1705600639/cleaners/wepik-export-20240118173847ywmF_kc9ovj.png"} alt="Frequently Asked Questions" />
           </Grid.Col>
           <Grid.Col span={{ base: 12, md: 6 }}>

@@ -47,7 +47,7 @@ export function FeaturesSection() {
   return (
     <Container mt={'xl'} p={'xl'} mb={30} size="lg">
       <Flex justify={"center"} align={"center"} direction={"column"}>
-      <Title order={2} p={"xl"} size={"h1"}>Services We Provide</Title>
+      <Title order={2} p={{base:'lg',md:'sm'}} size={"h1"}>Services We Provide</Title>
       <SimpleGrid mt={'xl'} cols={{ base: 1, sm: 3 }} spacing={50}>
         {items}
       </SimpleGrid>

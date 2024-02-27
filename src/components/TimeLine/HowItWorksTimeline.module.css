@@ -8,3 +8,8 @@
     padding-right: var(--mantine-spacing-md);
     padding-top: var(--mantine-spacing-md);
 }
+@media (max-width: 48em){
+.image{
+    display: none;
+}
+}
