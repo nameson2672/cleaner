@@ -13,11 +13,11 @@ import {
   import { ContactIconsList } from './ContactIcon';
   import classes from './ContactUs.module.css';
   
-  const social = [IconBrandTwitter, IconBrandYoutube, IconBrandInstagram];
+  const social = [ IconBrandInstagram];
   
   export function ContactUs() {
     const icons = social.map((Icon, index) => (
-      <ActionIcon key={index} size={28} className={classes.social} variant="transparent">
+      <ActionIcon component="a" href={"/"} key={index} size={28} className={classes.social} variant="transparent">
         <Icon size="1.4rem" stroke={1.5} />
       </ActionIcon>
     ));
