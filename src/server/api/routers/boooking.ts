@@ -7,8 +7,6 @@ export const bookingRouter = createTRPCRouter({
     create: publicProcedure
         .input((bookinInfo) => { return bookinInfo as InvoicePropType })
         .mutation(async ({ ctx, input }):Promise<number> => {
-            console.log(input)
-            console.log(JSON.stringify(input.packageData))
             const bookingCreate = await ctx.db.booking.create({
                 data: {
                     address: input.address,
