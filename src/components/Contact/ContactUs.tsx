@@ -9,7 +9,7 @@ import {
     ActionIcon,
     Container,
   } from '@mantine/core';
-  import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram } from '@tabler/icons-react';
+  import { IconBrandInstagram } from '@tabler/icons-react';
   import { ContactIconsList } from './ContactIcon';
   import classes from './ContactUs.module.css';
   
