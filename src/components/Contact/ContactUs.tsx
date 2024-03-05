@@ -9,8 +9,7 @@ import {
   ActionIcon,
   Container,
   rem,
-  ThemeIcon,
-  Center,
+  ThemeIcon
 } from '@mantine/core';
 import { IconBrandInstagram, IconCheckupList } from '@tabler/icons-react';
 import { ContactIconsList } from './ContactIcon';
