@@ -12,6 +12,6 @@ export const contactRouting = createTRPCRouter({
                 message:input.message
             }
         });
-        return costomerData.id;
+        return;
     })
 })
