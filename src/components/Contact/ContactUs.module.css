@@ -34,6 +34,9 @@
     padding: var(--mantine-spacing-xl);
     border-radius: var(--mantine-radius-md);
     box-shadow: var(--mantine-shadow-lg);
+    @media (max-width: $mantine-breakpoint-sm) {
+      padding: var(--mantine-spacing-md);
+    }
   }
   
   .social {
@@ -60,4 +63,14 @@
   
   .control {
     background-color: var(--mantine-color-blue-6);
+  }
+
+  .successMessage{
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    margin-top: var(--mantine-spacing-xl);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
   }

@@ -1,20 +1,24 @@
 import React, { FC, useState } from "react";
 import { ChecklistCard } from "../Cards/ChecklistCard";
 import { type CheckListData, type CrossForSection } from "~/types/LandingPagePropsType";
-import { Button, Center, Container, Group, Text } from "@mantine/core";
+import { Button, Center, Container, Group, Text, em } from "@mantine/core";
 import { checkListData } from "~/data/cleaningCategory";
+import { useMediaQuery } from '@mantine/hooks';
+
 
 const CheckListSection = () => {
   const data: CheckListData = checkListData;
   const [selectedPackage, setSelectedPackage] = useState(1);
   const [packegeInfos, setPackageInfos] = useState(["Elevate your well-maintained home with our frequent and detailed standard cleaning service.", "Indulge in a thorough clean, ideal for those who prefer a less frequent, yet meticulous approach.", "Seamlessly transition with our move in/out cleaning, perfect for new beginnings or a tidy farewell."]);
-  console.log(data);
+  const isMobile = useMediaQuery(`(max-width: ${em(750)})`);
+
+  
   const getMyType = (value: number) => {
     setSelectedPackage(value);
   };
   return (
     <>
-    <Button.Group m={'xl'}>
+    <Button.Group m={{base:'md', md:'sm',xs:'xs'}}>
         <Button
           size="lg"
           onClick={() => getMyType(1)}
@@ -47,7 +51,7 @@ const CheckListSection = () => {
       <Center mb={'md'}>
       <Text fw={500} size="md">{packegeInfos[selectedPackage-1]}</Text>
       </Center>
-      <Group align="stretch" grow>
+      <Group align="stretch" grow={!isMobile}>
         {data.map((e) => (
           <ChecklistCard
             key={e.header}

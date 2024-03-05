@@ -1,15 +1,27 @@
 import { Text, Box, HoverCard, Title, Center } from "@mantine/core";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Image } from "@mantine/core";
 import classes from "./CustomClickChangeCard.module.css";
-import { CustomClickChangeCardProp } from "~/types/CustomClickChangeCardProps";
+import { CustomClickChangeCardProp, SelectedPackageInfo } from "~/types/CustomClickChangeCardProps";
 
 function CustomClickChangeCard({
   imageUrl,
   name,
   description,
+  price,
+  selection,
+  setSelection
 }: CustomClickChangeCardProp) {
   const [isSelected, setIsSelected] = useState(false);
+  useEffect(() => {
+    if(isSelected){
+      setSelection([...selection, {imageUrl, name, price, description} as SelectedPackageInfo ])
+    }
+    else if (!isSelected){
+      setSelection(pre=>pre.filter(item => item.name !== name))
+    }
+  }, [isSelected])
+  
   return (
     <div className={classes.mainComponent}>
       <HoverCard width={280} shadow="md">
